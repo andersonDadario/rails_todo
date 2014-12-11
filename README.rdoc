@@ -1,28 +1,30 @@
-== README
+== Rails TODO app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It's a simple add that allows users to manage their TODOs.
+This app includes:
+- TODO CRUD
+- User registration / sign_in / sign_out
+- Bootstrap template
+- [Rest API of Todos]
+- [Consume of Rest API to show the weather]
+- [Unit Tests]
 
-Things you may want to cover:
+== List of commands used
 
-* Ruby version
+# First bundle install to install all dependencies
+bundle install
 
-* System dependencies
+# Devise
+rails g devise:install
+rails g views
+rails g controller home index
+rails g devise User
+bundle exec rake db:create db:migrate
 
-* Configuration
+# TODOs
+rails g scaffold Todo task:string user:references
+bundle exec rake db:migrate
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# Bootstrap
+rails g bootstrap:install less
+rails g bootstrap:themed Todos
