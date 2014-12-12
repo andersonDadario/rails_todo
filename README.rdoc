@@ -6,7 +6,7 @@ This app includes:
 - User registration / sign_in / sign_out
 - Bootstrap template
 - Rest API of TODOs consumed by AngularJS
-- [Consume of Rest API to show the weather]
+- Consume of Rest API to show the weather
 - [Unit Tests]
 - [Bower dependencies]
 

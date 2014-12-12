@@ -17,6 +17,7 @@ en:
       new: "New"
       edit: "Edit"
       view: "View"
+      weather: "Weather"
     titles:
       edit: "Edit %{model}"
       save: "Save %{model}"

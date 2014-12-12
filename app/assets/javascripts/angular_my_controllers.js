@@ -1,3 +1,4 @@
+// TODOs
 angular.module('todoApp.controllers', []).controller('TodoListController', function($scope, $state, popupService, $window, Todo) {
   $scope.todos = Todo.query(); //fetch all todos. Issues a GET to /api/todos
  
@@ -31,4 +32,6 @@ angular.module('todoApp.controllers', []).controller('TodoListController', funct
   };
  
   $scope.loadTodo(); // Load a todo which can be edited on UI
+}).controller('TodoWeatherController', function($scope, $state, $stateParams, Weather) {
+  $scope.weather = Weather.get(); 
 });

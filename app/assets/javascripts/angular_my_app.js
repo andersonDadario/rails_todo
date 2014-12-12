@@ -1,10 +1,13 @@
-angular.module('todoApp', ['ui.router', 'ngResource', 'todoApp.controllers', 'todoApp.services', 'templates']);
-
-
+// TODOs
+angular.module('todoApp', ['ui.router', 'ngResource', 'todoApp.controllers', 'todoApp.services', 'weatherApp.services', 'templates']);
 angular.module('todoApp').config(function($httpProvider){
 
-  authToken = $("meta[name=\"csrf-token\"]").attr("content")
-  $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
+  // CSRF Token
+  csrfToken = $("meta[name=\"csrf-token\"]").attr("content");
+  //$httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken
+  $httpProvider.defaults.headers.post["X-CSRF-TOKEN"] = csrfToken
+  $httpProvider.defaults.headers.put["X-CSRF-TOKEN"] = csrfToken
+  $httpProvider.defaults.headers["delete"] = { "X-CSRF-TOKEN": csrfToken }
 
 }).config(function($stateProvider) {
 
@@ -24,6 +27,10 @@ angular.module('todoApp').config(function($httpProvider){
     url: '/todos/:id/edit',
     templateUrl: 'edit.html',
     controller: 'TodoEditController'
+  }).state('Weather', { //state for updating a Todo
+    url: '/weather',
+    templateUrl: 'weather.html',
+    controller: 'TodoWeatherController'
   });
 }).run(function($state) {
   $state.go('Todos'); //make a transition to Todos state when app starts
