@@ -18,7 +18,7 @@ class ApiTodosController < BaseApiController
     @todo = Todo.new(todo_params)
 
 	if @todo.save
-	  render :show, status: :created, location: @todo
+	  render :show, status: :created
 	else
 	  render json: @todo.errors, status: :unprocessable_entity
 	end
@@ -29,7 +29,7 @@ class ApiTodosController < BaseApiController
   # PATCH/PUT /todos/1.json
   def update
     if @todo.update(todo_params)
-      render :show, status: :ok, location: @todo
+      render :show, status: :ok
     else
       render json: @todo.errors, status: :unprocessable_entity
     end
