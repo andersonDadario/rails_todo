@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>RailsTodo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html data-ng-app="todoApp">
+	<head>
+	 	<title>Rails Todo</title>
+	 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	 	<%= yield :custom_javascript %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+	    <div class="container">
+			<% if notice %> 
+				<div class="alert alert-success"><%= notice %></div>
+			<% end %>
 
-<% if notice %>
-	<div class="alert alert-success"><%= notice %></div>
-<% end %>
-<% if alert %>
-	<div class="alert alert-warning"><%= alert %></div>
-<% end %>
+			<% if alert %>
+				<div class="alert alert-warning"><%= alert %></div>
+			<% end %>
 
-<%= yield %>
+ 			<div ui-view><%= yield %></div>
 
-</body>
+ 			<% if user_signed_in? %>
+ 				<br/><br/>
+ 				<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+ 			<% end %>
+		</div>
+
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	</body>
 </html>

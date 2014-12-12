@@ -1,0 +1,19 @@
+<% model_class = Todo %>
+<div class="page-header">
+  <h1><%= I18n.t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+
+<form class="form-horizontal" role="form" ng-submit="updateTodo()">
+	<div class="form-group">
+	  <label for="title" class="col-sm-2 control-label">Task</label>
+	  <div class="col-sm-10">
+	    <input type="text" ng-model="todo.task" class="form-control" id="task" placeholder="Task Here"/>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <div class="col-sm-offset-2 col-sm-10">
+	    <a class="btn btn-default" href="#/todos"><%= I18n.t '.cancel', :default => I18n.t("helpers.links.cancel") %></a> 
+	    <input type="submit" class="btn btn-primary" value="Save"/>
+	  </div>
+	</div>
+</form>

@@ -1,0 +1,38 @@
+<% model_class = Todo %>
+<div class="page-header">
+  <h1><%= I18n.t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:task) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= I18n.t '.actions', :default => I18n.t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="todo in todos">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.task }}</td>
+        <td>{{ todo.created_at }}</td>
+        <td>
+          <a class="btn btn-primary" ui-sref="viewTodo({id:todo.id})" class="btn btn-default btn-xs">
+            <%= I18n.t '.view', :default => I18n.t("helpers.links.view") %>
+          </a> 
+
+          <a class="btn btn-primary" ui-sref="editTodo({id:todo.id})" class="btn btn-default btn-xs">
+            <%= I18n.t '.edit', :default => I18n.t("helpers.links.edit") %>
+          </a> 
+
+          <a class="btn btn-danger"  ng-click="deleteTodo(todo)" class="btn btn-xs btn-danger">
+            <%= I18n.t '.destroy', :default => I18n.t("helpers.links.destroy") %>
+          </a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+
+<a ui-sref="newTodo" class="btn-primary btn-lg nodecoration"><%= I18n.t '.new', :default => I18n.t("helpers.links.new") %></a>
+

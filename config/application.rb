@@ -18,6 +18,14 @@ module RailsTodo
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :en
+
+    # Angular Templates
+    ## In case of trouble, it may help Angular:
+    ### config.assets.js_compressor = Uglifier.new(mangle: false)
+    config.angular_templates.module_name    = 'templates'
+    config.angular_templates.ignore_prefix  = %w(templates/)
+    config.angular_templates.markups        = %w(erb) # str haml slim md
+    config.angular_templates.htmlcompressor = false
   end
 end

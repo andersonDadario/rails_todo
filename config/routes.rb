@@ -5,6 +5,21 @@ Rails.application.routes.draw do
   get 'home/index'
   resource :todos
 
+  # API
+  scope '/api', defaults: {format: 'json'}, constraints: {format: 'json', id: /\d+/} do
+    scope '/v1' do
+      scope 'todos' do
+        get '/' => 'api_todos#index'
+        post '/' => 'api_todos#create'
+        scope '/:id' do
+          get '/' => 'api_todos#show'
+          put '/' => 'api_todos#update'
+          delete '/' => 'api_todos#destroy'
+        end
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,30 +1,34 @@
 == Rails TODO app
 
-It's a simple add that allows users to manage their TODOs.
+It's a simple app that allows users to manage their TODOs.
 This app includes:
 - TODO CRUD
 - User registration / sign_in / sign_out
 - Bootstrap template
-- [Rest API of Todos]
+- Rest API of TODOs consumed by AngularJS
 - [Consume of Rest API to show the weather]
 - [Unit Tests]
+- [Bower dependencies]
 
 == List of commands used
 
-# First bundle install to install all dependencies
-bundle install
+- [First bundle install to install all dependencies]
+-bundle install
 
-# Devise
-rails g devise:install
-rails g views
-rails g controller home index
-rails g devise User
-bundle exec rake db:create db:migrate
+- [Devise]
+- rails g devise:install
+- rails g views
+- rails g controller home index
+- rails g devise User
+- bundle exec rake db:create db:migrate
 
-# TODOs
-rails g scaffold Todo task:string user:references
-bundle exec rake db:migrate
+- [TODOs]
+- rails g scaffold Todo task:string user:references
+- bundle exec rake db:migrate
 
-# Bootstrap
-rails g bootstrap:install less
-rails g bootstrap:themed Todos
+- [Bootstrap]
+- rails g bootstrap:install less
+- rails g bootstrap:themed Todos
+
+- [Front End Dependencies]
+- rails g bower_rails:initialize json

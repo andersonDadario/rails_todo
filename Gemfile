@@ -42,6 +42,11 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
+# Angular
+gem 'angularjs-rails', '1.3.36'
+gem 'angularjs-rails-resource', '~> 1.2.1'
+gem 'angular-rails-templates', '0.1.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

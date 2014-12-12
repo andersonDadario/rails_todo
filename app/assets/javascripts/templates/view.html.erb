@@ -1,0 +1,14 @@
+<% model_class = Todo %>
+<div class="page-header">
+  <h1><%= I18n.t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:task) %>:</strong></dt>
+  <dd>{{ todo.task }}</dd>
+</dl>
+
+<div>
+  <a class="btn btn-default" href="#/todos"><%= I18n.t '.back', :default => I18n.t("helpers.links.back") %></a>
+  <a class="btn btn-primary" ui-sref="editTodo({id:todo.id})"><%= I18n.t '.edit', :default => I18n.t("helpers.links.edit") %></a>
+</div>
