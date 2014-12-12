@@ -13,22 +13,22 @@ This app includes:
 == List of commands used
 
 - [First bundle install to install all dependencies]
--bundle install
+	- bundle install
 
 - [Devise]
-- rails g devise:install
-- rails g views
-- rails g controller home index
-- rails g devise User
-- bundle exec rake db:create db:migrate
+	- rails g devise:install
+	- rails g views
+	- rails g controller home index
+	- rails g devise User
+	- bundle exec rake db:create db:migrate
 
 - [TODOs]
-- rails g scaffold Todo task:string user:references
-- bundle exec rake db:migrate
+	- rails g scaffold Todo task:string user:references
+	- bundle exec rake db:migrate
 
 - [Bootstrap]
-- rails g bootstrap:install less
-- rails g bootstrap:themed Todos
+	- rails g bootstrap:install less
+	- rails g bootstrap:themed Todos
 
 - [Front End Dependencies]
-- rails g bower_rails:initialize json
+	- rails g bower_rails:initialize json
