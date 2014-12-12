@@ -20,9 +20,6 @@ class BaseApiController < ApplicationController
 	   		if ["POST","PUT"].include? request.method
 	   			begin
 	   				@json = JSON.parse(request.body.read)
-	   				puts "VAIII JSON"
-	   				puts "#{@json}"
-	   				puts "================================"
 	   			rescue JSON::ParserError
 	   				head :bad_request
 	   			end
