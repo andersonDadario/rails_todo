@@ -1,6 +1,6 @@
 // TODOs
 angular.module('todoApp', ['ui.router', 'ngResource', 'todoApp.controllers', 'todoApp.services', 'weatherApp.services', 'templates']);
-angular.module('todoApp').config(function($httpProvider){
+angular.module('todoApp').config([ '$httpProvider', function($httpProvider){
 
   // CSRF Token
   csrfToken = $("meta[name=\"csrf-token\"]").attr("content");
@@ -9,7 +9,7 @@ angular.module('todoApp').config(function($httpProvider){
   $httpProvider.defaults.headers.put["X-CSRF-TOKEN"] = csrfToken
   $httpProvider.defaults.headers["delete"] = { "X-CSRF-TOKEN": csrfToken }
 
-}).config(function($stateProvider) {
+}]).config([ '$stateProvider', function($stateProvider) {
 
   $stateProvider.state('Todos', { // state for showing all Todos
     url: '/todos',
@@ -32,6 +32,6 @@ angular.module('todoApp').config(function($httpProvider){
     templateUrl: 'weather.html',
     controller: 'TodoWeatherController'
   });
-}).run(function($state) {
+}]).run([ '$state', function($state) {
   $state.go('Todos'); //make a transition to Todos state when app starts
-});
+}]);

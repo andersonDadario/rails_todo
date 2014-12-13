@@ -21,8 +21,7 @@ module RailsTodo
     config.i18n.default_locale = :en
 
     # Angular Templates
-    ## In case of trouble, it may help Angular:
-    ### config.assets.js_compressor = Uglifier.new(mangle: false)
+    config.assets.js_compressor = Uglifier.new(mangle: false)
     config.angular_templates.module_name    = 'templates'
     config.angular_templates.ignore_prefix  = %w(templates/)
     config.angular_templates.markups        = %w(erb) # str haml slim md
