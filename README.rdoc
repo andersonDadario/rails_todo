@@ -7,8 +7,12 @@ This app includes:
 - Bootstrap template
 - Rest API of TODOs consumed by AngularJS
 - Consume of Rest API to show the weather
-- [Unit Tests]
-- [Bower dependencies]
+- Tests (not finished yet)
+
+Next steps:
+
+- [Error Handling for UI (failed Angular requests)]
+- [Bower for front end dependencies management]
 
 == List of commands used
 
@@ -32,3 +36,6 @@ This app includes:
 
 [Front End Dependencies]
 - rails g bower_rails:initialize json
+
+[Tests]
+- rails g rspec:install

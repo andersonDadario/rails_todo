@@ -17,11 +17,11 @@ class ApiTodosController < BaseApiController
   def create    
     @todo = Todo.new(todo_params)
 
-	if @todo.save
-	  render :show, status: :created
-	else
-	  render json: @todo.errors, status: :unprocessable_entity
-	end
+  	if @todo.save
+  	  render :show, status: :created
+  	else
+  	  render json: @todo.errors, status: :unprocessable_entity
+  	end
 
   end
 
